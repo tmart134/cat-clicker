@@ -5,13 +5,33 @@ body {
 	margin: auto;
 }
 
+h1 {
+
+	font-size: 40px;
+}
+
+#first-cat-name,
+#second-cat-name {
+	font-size: 25px;
+}
+
 .cat-container {
 	text-align: center;
+}
+
+figure {
+
+	display: inline-block;
 }
 
 .cat-image:hover {
 	cursor: pointer;
 }
 .cat-click {
-	font-size: 48px;
+	font-size: 40px;
+}
+
+.cat-click p {
+	display: inline-block;
+	margin-right: 30px;
 }
