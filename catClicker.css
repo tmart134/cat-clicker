@@ -1,0 +1,17 @@
+//styles
+
+body {
+
+	margin: auto;
+}
+
+.cat-container {
+	text-align: center;
+}
+
+.cat-image:hover {
+	cursor: pointer;
+}
+.cat-click {
+	font-size: 48px;
+}
