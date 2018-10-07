@@ -1,28 +1,75 @@
-//cat clicker js
-let firstCat = "Buddy";
-let secondCat = "Heidi";
-let firstCatClickCounter=0;
-let secondCatClickCounter=0;
-let clickMessage;
+$(document).ready(function(){
 
-//display the cat names
-document.getElementById('first-cat-name').innerHTML = firstCat;
-document.getElementById('second-cat-name').innerHTML = secondCat;
+var catNamesArray=["Buddy", "Heidi", "Chubbs", "Spooky", "Ginger"];
+var catImagesArray=["cat","cats","kitten","kittens","felines"];
+var catNamesList = $('#cats-list');
+var catDisplayList = $('.cats');
+var catImageURL = "https://source.unsplash.com/random/300x200/?";;
+var clickMessage;
+
+var buddyClicks = 0;
+var heidiClicks = 0;
+var chubbsClicks = 0;
+var spookyClicks = 0;
+var gingerClicks = 0;
 
 
-$('.first-cat').click(function(e) {
+function updateCat(cat){
 
-//update the click count and display the count and cat name
-  	firstCatClickCounter++;
-  	clickMessage = `${firstCat}! ${firstCatClickCounter}`;
-  	document.getElementById('first-cat-clicks').innerHTML = clickMessage;
+	switch (cat){
+	        case "Buddy":
+	           buddyClicks++;
+	           clickMessage = cat + " " + buddyClicks.toString() + "!!";
+	           break;
+	        case "Heidi":
+	         	heidiClicks++;
+	         	clickMessage = cat + " " + heidiClicks.toString() + "!!";
+	            break; 
+	        case "Chubbs":
+	        	chubbsClicks++
+	        	clickMessage = cat + " " + chubbsClicks.toString() + "!!";
+	        	break;
+	        case "Spooky":
+	        	spookyClicks++;
+	        	clickMessage = cat + " " + spookyClicks.toString() + "!!";
+	        	break
+	        case "Ginger":   
+	        	gingerClicks++;
+	        	clickMessage = cat + " " + gingerClicks.toString() + "!!";
+	        	break;   
+	        default:
+	            break;    
+	    }
+			
+		document.getElementById(cat).innerHTML = clickMessage;
+}
 
-});
+for (var i=0; i < catNamesArray.length; i++){
 
-$('.second-cat').click(function(e){
+	var cat = catNamesArray[i];
+	var liElem = document.createElement( 'li' );
+	liElem.classList.add("cat-name-list");
+	liElem.innerHTML = cat;
+	var figureElem = document.createElement( 'figure');
+	var imgElem = document.createElement('img');
+	imgElem.classList.add('cat-image');
+	var url = catImageURL + catImagesArray[i];
+	imgElem.setAttribute("src", url);
+	var figcaptionElem = document.createElement('figcaption');
+	figcaptionElem.setAttribute('id', cat);
+	figcaptionElem.innerHTML = cat; 
 
-//update the click count and display the count and cat name
-	secondCatClickCounter++;
-	clickMessage = `${secondCat}! ${secondCatClickCounter}`;
-	document.getElementById('second-cat-clicks').innerHTML = clickMessage;
+	catDisplayList.append(figureElem);
+	figureElem.append(imgElem);
+	figureElem.append(figcaptionElem);
+	liElem.addEventListener('click', (function(catCopy){
+		return function(){
+			updateCat(catCopy);
+		};
+	})(cat));
+
+	catNamesList.append(liElem);
+
+	
+	}
 });

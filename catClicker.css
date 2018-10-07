@@ -8,12 +8,30 @@ body {
 h1 {
 
 	font-size: 40px;
+	text-align: center;
 }
 
-#first-cat-name,
-#second-cat-name {
-	font-size: 25px;
+nav {
+	background-color: #4532;
+	width: 75%%;
+	display: block;
+	font-size: 30px;
 }
+
+ul li {
+
+	display:inline-block;
+}
+
+li {
+	margin: 15px;
+}
+
+.cat-name-list:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 
 .cat-container {
 	text-align: center;
@@ -24,14 +42,9 @@ figure {
 	display: inline-block;
 }
 
-.cat-image:hover {
-	cursor: pointer;
-}
-.cat-click {
-	font-size: 40px;
+figcaption {
+	font-size: 25px;
+
 }
 
-.cat-click p {
-	display: inline-block;
-	margin-right: 30px;
-}
+
